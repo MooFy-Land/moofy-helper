@@ -1,6 +1,6 @@
 import os, time
 from main import menu
-from MORE_SECRET import input_voice_command, say, do_command, take_from_database, add_to_database, take_from_list_of_commands
+from MORE_SECRET import reg_new_command, input_voice_command, say, do_command, take_from_database, add_to_database, take_from_list_of_commands
 
 
 pages = ["""                               WHAT YOUR COMMAND WILL DO?
@@ -149,7 +149,7 @@ def find_more_similar_command(cmd):
 
 def start():
     while True:
-        command = find_more_similar_command(input_voice_command())
+        command = input_voice_command()
         if take_from_list_of_commands(2) in command:
             try:
                 do_command(command)
@@ -163,6 +163,7 @@ def do_it(choice):
         if choice == 1:
             what_is_new_command = log_new_command()
             if what_is_new_command != 'menu':
+                reg_new_command(what_is_new_command)
                 add_to_list_of_commands(what_is_new_command)
             clear()
             menu()
