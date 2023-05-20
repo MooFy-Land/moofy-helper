@@ -28,7 +28,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  |7. turn off my computer      |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
-                 |8. ssh connect               |MooFyMooFyMooFyMooFyMooFyMooFy|
+                 |8. smth                      |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  | return - return to menu     |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
@@ -37,7 +37,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  ______________________________________________________________
                  |9. lock my computer          |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
-                 |10. destroy my comp|dangerous|MooFyMooFyMooFyMooFyMooFyMooFy| VERY DANGEROUS
+                 |10. destroy my comp|dangerous|MooFyMooFyMooFyMooFyMooFyMooFy| VERY DANGEROUS| NO WAY TO BACK IT
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |11. fill in card details     |MooFyMooFyMooFyMooFyMooFyMooFy| (CREDIT CARD) NOT AVALIBALE AT THE MOMENT
@@ -55,7 +55,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  |14. connect with some stuff  |MooFyMooFyMooFyMooFyMooFyMooFy| it may be a smart desk or maybe 
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
-                 |15. smth3                    |MooFyMooFyMooFyMooFyMooFyMooFy|
+                 |15. smth2                    |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |16. kit of available options |MooFyMooFyMooFyMooFyMooFyMooFy|
@@ -85,6 +85,7 @@ def sleep(long):
     time.sleep(long)
 
 def clear():
+    sleep(1)
     os.system('clear')
 
 
@@ -102,7 +103,7 @@ def log_new_command():
             return('menu')
         print(pages[page + 1])
         page += 1
-        n = input()
+        n = input('\n>>>')
 
     while True:
         try:
