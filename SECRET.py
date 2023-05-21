@@ -28,7 +28,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  |7. turn off my computer      |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
-                 |8. smth                      |MooFyMooFyMooFyMooFyMooFyMooFy|
+                 |8. reboot my computer        |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  | return - return to menu     |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
@@ -55,7 +55,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  |14. connect with some stuff  |MooFyMooFyMooFyMooFyMooFyMooFy| it may be a smart desk or maybe 
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
-                 |15. smth2                    |MooFyMooFyMooFyMooFyMooFyMooFy|
+                 |15. tell a joke              |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
                  |16. kit of available options |MooFyMooFyMooFyMooFyMooFyMooFy|
@@ -68,7 +68,7 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
 
 
 def delete_all_files(path):
-    os.system(f'rm -r {path} && rm -d {path}')
+    os.system(f'rm -r {path}')
 
 
 def add_to_list_of_commands(choice):

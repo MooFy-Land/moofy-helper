@@ -1,4 +1,4 @@
-from commads import reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16
+from reg_commands import reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16
 
 def reg_new_command(command):
     print("fine let's register your command then")
@@ -50,3 +50,6 @@ def add_voice_command(choice):
     voice = input_voice_command()
 
     return(voice, choice)
+
+def do_command(command):
+    if command == ''

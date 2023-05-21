@@ -4,10 +4,12 @@ from fifth import stop_app
 from third import detect_platform
 from six import open_site
 from seven import off_comp
-from eight
+from eight import reboot_comp
 from nine import lock_comp
 from ten import OH_FCK_LETS_DO_IT
-def do_command(type, user_os, application, track, artist, link):
+from eleven import
+from twelve import calling
+def go_on(type, call_type, user_os, application, track, artist, link, call_pearson, app_for_calling):
     if type == 'open':
         app(user_os, application)
 
@@ -31,4 +33,10 @@ def do_command(type, user_os, application, track, artist, link):
 
     elif type == '!___destroy___!':
         OH_FCK_LETS_DO_IT(user_os)
+
+    elif type == 'reboot':
+        reboot_comp(user_os)
+
+    elif type == 'call':
+    calling(user_os, app_for_calling, call_pearson)
 

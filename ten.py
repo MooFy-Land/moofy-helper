@@ -1,5 +1,5 @@
 import os
-from Crypto.Util.number import getPrime, inverse, bytes_to_long, long_to_bytes
+from Crypto.Util.number import getPrime, bytes_to_long
 
 os.system('cd ../../../../')
 def make_rsa():

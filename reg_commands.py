@@ -1,3 +1,5 @@
+from doing_commands import do_command
+
 def input_just_voice():
     #stream voice for 5 seconds
     return voice_command
