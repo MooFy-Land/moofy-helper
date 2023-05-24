@@ -71,25 +71,12 @@ def delete_all_files(path):
     os.system(f'rm -r {path}')
 
 
-def add_to_list_of_commands(choice):
-    clear()
-    print("okey know let's do an phrase for starting this command")
-
-    voice = input_voice_command()
-
-    return (voice, choice)
-
-
-
 def sleep(long):
     time.sleep(long)
 
 def clear():
     sleep(1)
     os.system('clear')
-
-
-def next_page(page):
 
 
 def log_new_command():
@@ -129,7 +116,7 @@ def more_similar_os(user_os):
                 count += 1
         list_of_len_sim.append(count)
 
-    if max(list_of_len_sim) <= 2:
+    if max(list_of_len_sim) < 2:
         return(False)
     else:
         return(list_of_able_os[list_of_len_sim.index(max(list_of_len_sim))])
@@ -156,8 +143,6 @@ def start():
                 do_command(command)
             except:
                 say('smth went wrong, sorry, try it again')
-def stop():
-    exit(0)
 
 def do_it(choice):
     while True:
@@ -165,7 +150,6 @@ def do_it(choice):
             what_is_new_command = log_new_command()
             if what_is_new_command != 'menu':
                 reg_new_command(what_is_new_command)
-                add_to_list_of_commands(what_is_new_command)
             clear()
             menu()
 

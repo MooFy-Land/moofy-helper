@@ -1,7 +1,7 @@
-from doing_commands import do_command
+from doing_commands import go_on
 
 def input_just_voice():
-    #stream voice for 5 seconds
+    voice_command = ''#stream voice for 5 seconds
     return voice_command
 
 
@@ -31,16 +31,16 @@ def reg1():
     while True:
         user_app_mb = input()
         try:
-            do_command('open', take_from_database(1), user_app_mb)
+            go_on('open', take_from_database(1), user_app_mb)
             print("don't scare its just for check")
-            do_command('kill', take_from_database(1), user_app_mb)
+            go_on('kill', take_from_database(1), user_app_mb)
             path = user_app_mb
             break
         except:
             print('smth wrong.please check your path and try it again')
             clear()
 
-    put_to_database_of_commands('open', name = voice, app = path)
+    put_to_database_of_commands(type='open', name = voice, app = path)
     print("great we've done it!")
     clear()
 
@@ -69,7 +69,7 @@ def reg3():
             print(f'you put something wrong. i cant finde this track on {platform}\ncheck your options and try it again please')
             clear()
 
-    put_to_database_of_commands('track', voice, platform, artist, track)
+    put_to_database_of_commands(type='song', voice, platform, artist, track)
     print("great we've done it!")
     clear()
 
@@ -80,7 +80,7 @@ def reg4():
     print("this command need just you'r voice tag.")
     voice = give_voice_command()
 
-    put_to_database_of_commands('exit', voice)
+    put_to_database_of_commands(type='exit', voice)
     clear()
 
     return
@@ -94,16 +94,16 @@ def reg5():
     while True:
         user_app_mb = input()
         try:
-            do_command('open', take_from_database(1), user_app_mb)
+            go_on('open', take_from_database(1), user_app_mb)
             print("don't scare its just for check")
-            do_command('kill', take_from_database(1), user_app_mb)
+            go_on('kill', take_from_database(1), user_app_mb)
             path = user_app_mb
             break
         except:
             print('smth wrong.please check your path and try it again')
             clear()
 
-    put_to_database_of_commands('kill', name=voice, app=path)
+    put_to_database_of_commands(type='kill', name=voice, app=path)
     print("great we've done it!")
     clear()
 
@@ -111,4 +111,32 @@ def reg5():
 
 
 def reg6():
+    voice = give_voice_command()
+    while True:
+        print('here i need 2 things: your type of browser(chrome, firefox, ...) and link for site that i will need to open')
+        print('type please path to your browser\n>>>')
+        try:
+            browser = input()
+            go_on(type='open', user_os=take_from_database(1), application=browser)
+            go_on(type='kill', user_os=take_from_database(1), application=browser)
+            print('fine, looks like it is working, now please type link what i will need to open\n>>>')
+            link = input()
+            go_on(type='site', user_os=take_from_database(1), application=browser, link=link)
+            go_on(type='kill', user_os=take_from_database(1), application=browser)
+            print("Nice, now I'm convinced that I can definitely open this link, the command is registered")
+            put_to_database_of_commands(type='site', name=voice, browser=browser, link=link)
+            clear()
+            return
 
+        except:
+            print('you input smth wrong, try again please')
+            clear()
+
+def reg7():
+    voice = give_voice_command()
+    print('command done, cool')
+    clear()
+    put_to_database_of_commands(type='off', name=voice)
+    return
+
+def reg8():

@@ -16,7 +16,7 @@ def go_on(type, call_type, user_os, application, track, artist, link, call_pears
     elif type == 'kill':
         stop_app(user_os, application)
 
-    elif type == 'close':
+    elif type == 'exit':
         stop_me()
 
     elif type == 'song':
