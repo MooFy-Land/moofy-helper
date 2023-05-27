@@ -1,13 +1,4 @@
 import eight, fifth, first, fourth, nine, seven, six, ten, third, twelve
-
-from third import detect_platform
-from six import open_site
-from seven import off_comp
-from eight import reboot_comp
-from nine import lock_comp
-from ten import OH_FCK_LETS_DO_IT
-from eleven import
-from twelve import calling
 def go_on(type, call_type, user_os, application, track, artist, link, call_pearson, app_for_calling):
     if type == 'open':
         first.app(user_os, application)

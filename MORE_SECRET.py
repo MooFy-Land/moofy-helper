@@ -38,10 +38,11 @@ def reg_new_command(command, kit):
 
 def input_voice_command():
     while True:
-        find = ''#somehow stream voice
+        find = ''
         if more_similar_commad(find) in list_of_commands:
             return find
         else:
             say('did not hear. please repeat')
 def do_command(command):
-    if command == ''
+    if command == '':
+        print('')

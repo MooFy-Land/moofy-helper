@@ -2,6 +2,7 @@ import os, time
 from main import menu
 from MORE_SECRET import reg_new_command, input_voice_command, say, do_command, take_from_database, add_to_database, take_from_list_of_commands
 
+list_of_able_os = ['macOS, Windows, linux']
 
 pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  ______________________________________________________________
@@ -65,7 +66,87 @@ pages = ["""                               WHAT YOUR COMMAND WILL DO?
                  | next - next page of commands|MooFyMooFyMooFyMooFyMooFyMooFy|
                  --------------------------------------------------------------"""]
 
+def detect_fist_time():
+    if take_from_database(4) == None:
+        return(True)
+    else:
+        return(False)
 
+
+def register():
+    global list_of_able_os
+    print('hello how do you do?')
+    mood = input()
+    print("fine i think you are not here for this\nlet's register you")
+    sleep(3)
+    while True:
+        clear()
+        print("first what i need it's your os\n>>>")
+        try:
+            user_os = more_similar_os(input().lower())
+            if user_os == False:
+                print(f"i don't know this os\n i work only with such os as\n{list_of_able_os}")
+            else:
+                yes_no = input(f'well your os is {user_os} isnt it?(yes/no)').lower()
+                while True:
+                    if yes_no in ['yes', 'no']:
+                        if yes_no == 'yes':
+                            break
+                        else:
+                            print("fine let's try it again")
+                            break
+                    else:
+                        yes_no = input('yes/no only').lower()
+                if yes_no == 'yes':
+                    print("fine let's go further")
+                    break
+        except:
+            print('man how did you do an erorr. please type your os')
+
+    add_to_database(user_os, 1)
+
+    print('second what i need it is how you want to call me\n>>>')
+
+    add_to_database(input(), 2)
+
+    print('and last what i need it is how can I call you?')
+
+    add_to_database(input(), 3)
+
+    return
+
+def menu():
+    print("""MooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFy
+                                                                   here we go again""")
+    if detect_fist_time() == True:
+        print("                                         my official name is MooFy\nbut you can rename me in register step")
+        register()
+    print("""                                 MENU
+             ______________________________________________________________
+             | 1. log new command          |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             | 2. re-register your voice   |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             | 3.clear screen and start    |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |         working             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             | 4. stop me                  |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             | 5. write an review          |MooFyMooFyMooFyMooFyMooFyMooFy|
+             |                             |MooFyMooFyMooFyMooFyMooFyMooFy|
+             | 6. delete me for ever       |MooFyMooFyMooFyMooFyMooFyMooFy|
+             --------------------------------------------------------------""")
+    print('what do you want?\n>>>')
+    while True:
+        try:
+            n = int(input())
+            if n < 7 and n > 0:
+                return(n)
+            else:
+                print('only digit 1-6')
+        except:
+            print('seems like you put not digit here, try it again')
 
 def delete_all_files(path):
     os.system(f'rm -r {path}')
@@ -145,11 +226,25 @@ def start():
                 say('smth went wrong, sorry, try it again')
 
 def do_it(choice):
+
     while True:
+        while True:
+            try:
+                n = input('ur choice?\n>>>')
+                if n.isdigit() and 0 < int(n) < 7:
+                    choice = int(n)
+                    break
+
+                else:
+                    print('looks like u put not a digit from 1 to 6, try it again')
+
+            except:
+                print('smth went wrong, please try it again')
+
         if choice == 1:
             what_is_new_command = log_new_command()
             if what_is_new_command != 'menu':
-                if what_is_new_command == 16:
+                if what_is_new_command == 16:  #new
                     kit = True
                 else:
                     kit = False
@@ -186,15 +281,3 @@ def do_it(choice):
                 sleep(2)
                 clear()
                 menu()
-
-        while True:
-            try:
-                n = input('ur choice?\n>>>')
-                if n.isdigit() and 0 < int(n) < 7:
-                    choice = int(n)
-
-                else:
-                    print('looks like u put not a digit from 1 to 6, try it again')
-
-            except:
-                print('smth went wrong, please try it again')
