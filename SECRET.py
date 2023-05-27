@@ -149,7 +149,11 @@ def do_it(choice):
         if choice == 1:
             what_is_new_command = log_new_command()
             if what_is_new_command != 'menu':
-                reg_new_command(what_is_new_command)
+                if what_is_new_command == 16:
+                    kit = True
+                else:
+                    kit = False
+                reg_new_command(what_is_new_command, kit)
             clear()
             menu()
 
