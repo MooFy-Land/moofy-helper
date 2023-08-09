@@ -1,4 +1,4 @@
-from commads import reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16
+from commads import reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16, input_just_voice
 
 def reg_new_command(command):
     print("fine let's register your command then")
@@ -36,17 +36,21 @@ def reg_new_command(command):
         reg16()
 
 
-def input_voice_command():
-    while True:
-        #somehow stream voice
-        if more_similar_commad(find) in list_of_commands:
-            return find
+def input_voice_command(type:int):
+    if type == 1:
+        while True:
+            #somehow stream voice
+            if more_similar_commad(find) in list_of_commands:
+                return find
+    else:
+        input_just_voice()
+
 
 
 def add_voice_command(choice):
     clear()
     print("okey know let's do an phrase for starting this command")
 
-    voice = input_voice_command()
+    voice = input_voice_command(2)
 
     return(voice, choice)

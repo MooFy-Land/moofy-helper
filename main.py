@@ -2,7 +2,7 @@ from SECRET import *
 
 list_of_able_os = ['macOS, Windows, linux']
 
-def detect_fist_time():
+def detect_first_time():
     if take_from_database(4) == None:
         return(True)
     else:
@@ -14,7 +14,7 @@ def register():
     print('hello how do you do?')
     mood = input()
     print("fine i think you are not here for this\nlet's register you")
-    sleep(3)
+    sleep(1)
     while True:
         clear()
         print("first what i need it's your os\n>>>")
@@ -58,7 +58,7 @@ def menu():
     print("""MooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFyMooFYMooFyMooFyMooFyMooFy
                                                                    here we go again""")
     if detect_fist_time() == True:
-        print("                                         my official name is MooFy\nbut you can rename me in register step")
+        print("                                         my official name is MooFy-helper\nbut you can rename me in register step")
         register()
     print("""                                 MENU
              ______________________________________________________________

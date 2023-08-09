@@ -1,11 +1,6 @@
 import os
 
 def tool_for_mac(path, type, tool_name):
-'''
-
-        NEED TO BE INICILIZED
-
-'''
 
 def tool_for_win(path, type, tool_name):
 '''
