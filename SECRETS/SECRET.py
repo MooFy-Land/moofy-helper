@@ -215,6 +215,12 @@ def find_more_similar_command(cmd):
 
     return(list_of_commads[count.index(max(count))])
 
+def check_values(values):
+    for value in values:
+        if  not (1 <= value <= 16):
+            return False
+    return True
+
 
 def start():
     while True:
@@ -246,6 +252,17 @@ def do_it(choice):
             if what_is_new_command != 'menu':
                 if what_is_new_command == 16:  #new
                     kit = True
+                    while True:
+                        try:
+                            what_is_new_command = list(map(int, input('please enter the command number you would like to include in this protocol in the part provided').split()))
+                            if check_values(what_is_new_command):
+                                print('cool, lets register it all now')
+                                break
+                            else:
+                                print('you wrote a number of command that i dont have, try again')
+                        except:
+                            print('only digits are allowed')
+
                 else:
                     kit = False
                 reg_new_command(what_is_new_command, kit)

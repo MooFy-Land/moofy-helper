@@ -1,6 +1,6 @@
 from reg_commands import reg1, reg2, reg3, reg4, reg5, reg6, reg7, reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15, reg16
 
-def reg_new_command(command, kit):
+def reg_command_for_once(command, kit):
     print("fine let's register your command then")
     if command == 1:
         reg1(kit)
@@ -34,6 +34,8 @@ def reg_new_command(command, kit):
         reg15(kit)
     elif command == 16:
         reg16()
+
+
 
 
 def input_voice_command():

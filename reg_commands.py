@@ -7,8 +7,8 @@ def input_just_voice():
     return voice_command
 
 
-def give_voice_command(kit):
-    if kit == True:
+def give_voice_command(kit_):
+    if kit_ == True:
         print("please say how are you going to call this command\n")
         while True:
             print("i'm listening...")
@@ -22,6 +22,7 @@ def give_voice_command(kit):
             else:
                 SECRET.clear()
                 print("fine let's try it again then\n")
+        kit = False
         return command
     else:
         SECRET.clear()
@@ -218,3 +219,5 @@ def reg13(kit):
 def reg14(kit):
     print('comming soon...')
     return
+
+def reg15(kit):
